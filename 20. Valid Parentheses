@@ -1,0 +1,20 @@
+def isValid(self, s: str) -> bool:
+        right=['(','{','[']
+        left=[')','}',']']
+        l=[]
+        s=list(s)
+        
+        for i in s:
+            if i in right:
+                l.append(right.index(i))
+            else:
+                try:
+                    if left[l.pop()]==i: continue
+                    else: return False
+                except: return False
+        return True if len(l)==0 else False
+        
+#짝이 맞는 괄호끼리 인덱스 번호 같게 만들기 
+#여는 괄호는 l 리스트에 저장, 닫는 괄호가 나오면 저장된 l리스트에서 수를 하나씩 꺼내서 맞는지 비교
+#여는 괄호가 더이상 없는데 닫는 괄호가 나오는 경우 pop함수에서 오류 발생하므로 try-except로 False반환
+#전부 다 확인했는데 여는 괄호가 더 많아서 l안에 수가 있는 경우 False, l안에 더이상 아무 원소도 없으면 True반환
