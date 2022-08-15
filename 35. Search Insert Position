@@ -1,0 +1,7 @@
+ def searchInsert(self, nums: List[int], target: int) -> int:
+        position = 0
+        for i in nums:
+            if target<=i:
+                return position
+            position+=1
+        return position
