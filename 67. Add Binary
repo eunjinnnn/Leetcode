@@ -1,0 +1,25 @@
+ def addBinary(self, a: str, b: str) -> str:
+        a = list(a)
+        b = list(b)
+        lstring = a if len(a) > len(b) else b
+        sstring = a if len(a) <= len(b) else b
+        turn = len(lstring)
+
+        ans = ""
+        c=0
+        for i in range(turn):
+            n = 0
+            try:
+                s=sstring.pop()
+            except:
+                s=0
+
+            n = int(lstring.pop()) + int(s) + c
+            if n == 0 or n == 1:
+                ans+=str(n)
+                c = 0
+            if n >= 2:
+                ans+=str(n % 2)
+                c = 1
+        ans = ans if c==0 else ans+str(c)
+        return ans[::-1]
