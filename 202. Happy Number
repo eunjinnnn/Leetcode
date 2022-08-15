@@ -1,0 +1,12 @@
+    def isHappy(self, n: int) -> bool:
+        count=0
+        while (True):
+            ans = 0
+            for i in str(n):
+                ans+=int(i)**2
+            if ans == 1:
+                return True
+            n=ans
+            count+=1
+            if count>50:
+                return False
