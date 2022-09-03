@@ -1,0 +1,16 @@
+def twoSum( numbers, target):
+    standard_list = list(set(numbers))
+    for num1 in list(set(numbers)):
+        index1 = numbers.index(num1)
+        try:
+            index2 = numbers[index1 + 1:].index(target - num1)
+            return [index1 + 1, index2 + index1 + 2] #[index1+1, index2+(index1+1)+1]
+        except:
+            continue
+            
+# 전체적인 방식 : target-기준숫자(num1) = num2가 numbers안에 있으면 값 반환
+# runtime error : 기준리스트를 numbers에서 중복을 없앤 수로 함 + 오름차순이므로 앞에서부터 기준숫자
+# try-except를 이용해 num2가 numbers리스트 안에 없으면 바로 다음 진행
+# 있으면 num1이후 numbers리스트에서 index값을 가져옴
+# index2는 index1이후의 numbers로부터 받은 수이므로 +index1+1
+# 원래 index값에 각각 +1을 해야 원하는 결과 얻음 -> 각 index에 +1씩한 후 반환
