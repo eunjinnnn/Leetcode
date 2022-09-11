@@ -1,0 +1,12 @@
+def pivotIndex(self, nums: List[int]) -> int:
+        standard = 0
+        left, right = 0, sum(nums)-nums[0]
+        while standard < len(nums) - 1:
+            if left != right:
+                left += nums[standard]
+                standard += 1
+                right -= nums[standard]
+            else:
+                return standard
+        return -1 if left!=right else standard
+                
