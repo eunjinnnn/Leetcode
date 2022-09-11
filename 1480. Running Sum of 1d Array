@@ -1,0 +1,7 @@
+def runningSum(nums):
+        sum=0
+        runningsum=[]
+        for i in nums:
+            sum+=i
+            runningsum.append(sum)
+        return runningsum
