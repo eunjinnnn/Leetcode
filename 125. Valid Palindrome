@@ -1,0 +1,15 @@
+def isPalindrome(s):
+    s=s.lower()
+    news=''.join(char for char in s if char.isalnum())
+    fast,slow=0,0
+    l=[]
+    for f in range(0,len(news)-1,2):
+        l.append(news[slow])
+        slow+=1
+
+    fast=len(news)-1
+    for i in l:
+        if i!=news[fast]: return False
+        fast-=1
+
+    return True
